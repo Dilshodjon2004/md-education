@@ -1,5 +1,6 @@
 import {
 	Button,
+	Card,
 	Heading,
 	Input,
 	Rating,
@@ -37,6 +38,18 @@ const Index = () => {
 			<TextArea placeholder='Enter text...' />
 			<br />
 			<Rating rating={rating} isEditable={true} setRating={setRating} />
+
+			<br />
+			<Card color='white' >
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aliquid
+				dolore adipisci? Totam optio quasi officia, quaerat consequatur dolores
+				labore.
+			</Card>
+			<Card color='primary' >
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aliquid
+				dolore adipisci? Totam optio quasi officia, quaerat consequatur dolores
+				labore.
+			</Card>
 		</div>
 	)
 }
