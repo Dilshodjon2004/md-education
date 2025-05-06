@@ -1,4 +1,4 @@
-import { Button, Heading, Tag, Text } from '@/components'
+import { Button, Heading, Input, Tag, Text, TextArea } from '@/components'
 import { useState } from 'react'
 
 const Index = () => {
@@ -23,6 +23,10 @@ const Index = () => {
 			<Button appearance='primary' arrow='down'>
 				Arrow Down
 			</Button>
+			<br />
+			<Input placeholder='Enter ' />
+
+			<TextArea placeholder='Enter text...' />
 		</div>
 	)
 }
