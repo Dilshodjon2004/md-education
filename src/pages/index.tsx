@@ -1,11 +1,10 @@
-import { Heading } from '@/components'
+import { Heading, Text } from '@/components'
 
 const Index = () => {
 	return (
 		<div>
-			<Heading tag='h1'>
-				<p>hi</p>
-			</Heading>
+			<Heading tag='h1'>Hello world! This is a test page.</Heading>
+			<Text size='l'>Test text</Text>
 		</div>
 	)
 }
