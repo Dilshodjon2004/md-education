@@ -1,8 +1,17 @@
-import { Button, Heading, Input, Tag, Text, TextArea } from '@/components'
+import {
+	Button,
+	Heading,
+	Input,
+	Rating,
+	Tag,
+	Text,
+	TextArea,
+} from '@/components'
 import { useState } from 'react'
 
 const Index = () => {
 	const [isClick, setIsClick] = useState(false)
+	const [rating, setRating] = useState<number>(3)
 	return (
 		<div>
 			<Heading tag='h1'>Hello world! This is a test page.</Heading>
@@ -25,8 +34,9 @@ const Index = () => {
 			</Button>
 			<br />
 			<Input placeholder='Enter ' />
-
 			<TextArea placeholder='Enter text...' />
+			<br />
+			<Rating rating={rating} isEditable={true} setRating={setRating} />
 		</div>
 	)
 }
