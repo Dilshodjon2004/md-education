@@ -16,6 +16,8 @@ import { useState } from 'react'
 const Index = () => {
 	const [isClick, setIsClick] = useState(false)
 	const [rating, setRating] = useState<number>(3)
+
+	
 	return (
 		<>
 			<Heading tag='h1'>Hello world! This is a test page.</Heading>
@@ -60,9 +62,12 @@ const Index = () => {
 export default withLayout(Index)
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	const { data } = await axios.post('http://localhost:3001/page-find', {
-		firstCategory: 0,
-	})
+	const { data } = await axios.post(
+		`${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`,
+		{
+			firstCategory: 0,
+		}
+	)
 	return {
 		props: {
 			data,
