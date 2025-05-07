@@ -1,5 +1,4 @@
 import { AppContext } from '@/context/app.context'
-
 import Link from 'next/link'
 import { useContext } from 'react'
 import styles from './menu.module.css'
@@ -80,10 +79,10 @@ const Menu = (): JSX.Element => {
 	const buildThirdLevel = (pages: IPageItem[], route: string) => {
 		return pages.map(p => (
 			<Link
-				href={`/${route}/${p.alias}`}
+				href={`/${route}/${p._id}`}
 				key={p._id}
 				className={cn(styles.thirdLevel, {
-					[styles.thirdLevelActive]: `/${route}/${p.alias}` === router.asPath,
+					[styles.thirdLevelActive]: `/${route}/${p._id}` === router.asPath,
 				})}
 			>
 				{p.title}
