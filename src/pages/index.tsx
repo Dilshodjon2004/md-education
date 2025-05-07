@@ -8,16 +8,18 @@ import {
 	Text,
 	TextArea,
 } from '@/components'
+import { IMenuItem } from '@/interfaces/menu.interface'
 import { withLayout } from '@/layout/layout'
 import axios from 'axios'
 import { GetServerSideProps } from 'next'
 import { useState } from 'react'
 
-const Index = () => {
+const Index = ({ firstCategory, menu }: IHomeProps): JSX.Element => {
 	const [isClick, setIsClick] = useState(false)
 	const [rating, setRating] = useState<number>(3)
 
-	
+	console.log(menu)
+
 	return (
 		<>
 			<Heading tag='h1'>Hello world! This is a test page.</Heading>
@@ -61,16 +63,23 @@ const Index = () => {
 
 export default withLayout(Index)
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	const { data } = await axios.post(
+export const getServerSideProps: GetServerSideProps<IHomeProps> = async () => {
+	const firstCategory = 0
+	const { data: menu } = await axios.post<IMenuItem[]>(
 		`${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`,
 		{
-			firstCategory: 0,
+			firstCategory,
 		}
 	)
 	return {
 		props: {
-			data,
+			menu,
+			firstCategory,
 		},
 	}
+}
+
+interface IHomeProps extends Record<string, unknown> {
+	firstCategory: number
+	menu: IMenuItem[]
 }
