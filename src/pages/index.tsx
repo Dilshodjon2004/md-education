@@ -8,13 +8,16 @@ import {
 	Text,
 	TextArea,
 } from '@/components'
+import { withLayout } from '@/layout/layout'
+import axios from 'axios'
+import { GetServerSideProps } from 'next'
 import { useState } from 'react'
 
 const Index = () => {
 	const [isClick, setIsClick] = useState(false)
 	const [rating, setRating] = useState<number>(3)
 	return (
-		<div>
+		<>
 			<Heading tag='h1'>Hello world! This is a test page.</Heading>
 			<Text size='l'>Test text</Text>
 			<Tag size='m' color='danger'>
@@ -40,18 +43,29 @@ const Index = () => {
 			<Rating rating={rating} isEditable={true} setRating={setRating} />
 
 			<br />
-			<Card color='white' >
+			<Card color='white'>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aliquid
 				dolore adipisci? Totam optio quasi officia, quaerat consequatur dolores
 				labore.
 			</Card>
-			<Card color='primary' >
+			<Card color='primary'>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aliquid
 				dolore adipisci? Totam optio quasi officia, quaerat consequatur dolores
 				labore.
 			</Card>
-		</div>
+		</>
 	)
 }
 
-export default Index
+export default withLayout(Index)
+
+export const getServerSideProps: GetServerSideProps = async () => {
+	const { data } = await axios.post('http://localhost:3001/page-find', {
+		firstCategory: 0,
+	})
+	return {
+		props: {
+			data,
+		},
+	}
+}
