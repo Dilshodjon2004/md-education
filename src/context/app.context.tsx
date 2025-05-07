@@ -1,6 +1,6 @@
 import { IMenuItem } from '@/interfaces/menu.interface'
 import { PageCategory } from '@/interfaces/page.interface'
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, PropsWithChildren, useEffect, useState } from 'react'
 
 export interface IAppContext {
 	menu: IMenuItem[]
@@ -17,8 +17,12 @@ export const AppContextProvider = ({
 	firstCategory,
 	menu,
 	children,
-}: IAppContext & { children: ReactNode }): JSX.Element => {
+}: PropsWithChildren<IAppContext>): JSX.Element => {
 	const [menuState, setMenuState] = useState<IMenuItem[]>(menu)
+
+	// useEffect(() => {
+	// 	setMenuState(menu)
+	// }, [menu])
 
 	const setMenu = (newMenu: IMenuItem[]) => {
 		setMenuState(newMenu)
