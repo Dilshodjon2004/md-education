@@ -4,8 +4,8 @@ export interface IProduct {
 	_id: string
 	productId: string
 	category: string
-	price: string
-	credit: string
+	price: number
+	credit: number
 	images: string
 	oldPrice: number
 	description: string
@@ -13,7 +13,7 @@ export interface IProduct {
 	disadvantages: string
 	tags: string[]
 	characteristics: ICharacteristic[]
-	intialRating: number
+	initialRating: number
 	reviews: IReview[]
 	reviewCount: number
 }

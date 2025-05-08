@@ -9,3 +9,9 @@
 .editable {
 	cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+	.rating {
+		grid-column: start / end;
+	}
+}
