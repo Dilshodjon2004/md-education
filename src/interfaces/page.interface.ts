@@ -10,6 +10,7 @@ export interface IPage {
 	tags: string[]
 	description: string
 	hh: IHhData
+	category: string
 	advantages: IAdvantageData[]
 }
 

@@ -3,11 +3,18 @@ import { IMenuItem } from '@/interfaces/menu.interface'
 import { IPage } from '@/interfaces/page.interface'
 import { IProduct } from '@/interfaces/product.interface'
 import { withLayout } from '@/layout/layout'
+import { CoursePageComponent } from '@/page-components'
 import axios from 'axios'
 import { GetServerSideProps } from 'next'
 
-const Index = ({ products }: PageProps) => {
-	return <div>{products.length}</div>
+const Index = ({ products, page, firstCategory }: PageProps) => {
+	return (
+		<CoursePageComponent
+			products={products}
+			firstCategory={firstCategory}
+			page={page}
+		/>
+	)
 }
 
 export default withLayout(Index)
