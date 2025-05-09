@@ -1,7 +1,7 @@
-import { convertToUSD } from '@/helpers/helpers'
+import { convertToUSD, detectedReview } from '@/helpers/helpers'
 import cn from 'classnames'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Button from '../button/button'
 import Card from '../card/card'
 import Divider from '../divider/divider'
@@ -17,6 +17,12 @@ const Product = ({
 	...props
 }: ProductProps): JSX.Element => {
 	const [reviewOpen, setReviewOpen] = useState<boolean>(false)
+	const reviewRef = useRef<HTMLDivElement>(null)
+
+	const scrollToReview = () => {
+		setReviewOpen(true)
+		reviewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+	}
 
 	return (
 		<div className={cn(className)} {...props}>
@@ -55,7 +61,11 @@ const Product = ({
 				</div>
 				<div className={styles.priceTitle}>Price</div>
 				<div className={styles.creditTitle}>Credit</div>
-				<div className={styles.rateTitle}>{product.reviewCount} reviews</div>
+				<div className={styles.rateTitle}>
+					<a href='#review' onClick={scrollToReview}>
+						{product.reviewCount} {detectedReview(product.reviewCount)}
+					</a>
+				</div>
 
 				<Divider className={styles.hr} />
 				<div className={styles.description}>{product.description}</div>
@@ -104,6 +114,7 @@ const Product = ({
 
 			<Card
 				color='white'
+				ref={reviewRef}
 				className={cn(styles.review, {
 					[styles.opened]: reviewOpen,
 					[styles.closed]: !reviewOpen,
