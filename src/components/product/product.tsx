@@ -5,7 +5,6 @@ import Card from '../card/card'
 import Image from 'next/image'
 import { convertToUSD } from '@/helpers/helpers'
 import Rating from '../rating/rating'
-import skills from './skill.png'
 import Tag from '../tag/tag'
 import Divider from '../divider/divider'
 import Button from '../button/button'
@@ -23,7 +22,12 @@ const Product = ({
 		<div className={cn(className)} {...props}>
 			<Card className={styles.product}>
 				<div className={styles.logo}>
-					<Image src={skills} alt={product.title} width={70} height={70} />
+					<Image
+						src={'/skill.png'}
+						alt={product.title}
+						width={70}
+						height={70}
+					/>
 				</div>
 				<div className={styles.title}>{product.title}</div>
 				<div className={styles.price}>
