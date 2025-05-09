@@ -15,3 +15,19 @@
 .textArea::placeholder {
 	color: var(--gray);
 }
+
+.error {
+	border: 2px solid var(--red);
+	outline-color: var(--red);
+}
+
+.textAreaWrapper {
+	position: relative;
+}
+
+.errorMessage {
+	position: absolute;
+	bottom: -15px;
+	left: 0;
+	color: var(--red);
+}
