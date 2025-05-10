@@ -37,7 +37,7 @@ export const navLinks = [
 	},
 	{
 		name: 'About',
-		route: '/courses',
+		route: 'courses/reactjs_id',
 	},
 ]
 

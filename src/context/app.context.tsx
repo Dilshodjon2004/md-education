@@ -28,6 +28,10 @@ export const AppContextProvider = ({
 		setMenuState(newMenu)
 	}
 
+	useEffect(() => {
+		setMenu(menu)
+	}, [menu])
+
 	return (
 		<AppContext.Provider value={{ menu: menuState, firstCategory, setMenu }}>
 			{children}

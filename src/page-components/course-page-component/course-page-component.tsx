@@ -12,7 +12,7 @@ import {
 } from '@/components'
 import { sortReducer } from './sort.reducer'
 import { SortEnum } from '@/components/sort/sort.props'
-import { animate, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { useScrollY } from '@/hooks/useScrollY'
 
 const CoursePageComponent = ({
@@ -48,7 +48,6 @@ const CoursePageComponent = ({
 	return (
 		<div className={styles.wrapper}>
 			{/* Title */}
-			{scrollY}
 			<div className={styles.title}>
 				<Heading tag='h1'>{page.title}</Heading>
 				<Sort sort={state.sort} setSort={setSort} />

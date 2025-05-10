@@ -1,6 +1,6 @@
 import Navbar from '@/layout/navbar/navbar'
 import styles from './home-page-component.module.css'
-import { Button, Card, Heading, Text } from '@/components'
+import { Button, Card, Heading, ScrollUp, Text } from '@/components'
 import Image from 'next/image'
 import { company, timeLineList } from '@/helpers/constants'
 import { Fragment } from 'react'
@@ -77,6 +77,7 @@ const HomePageComponent = () => {
 					))}
 				</div>
 			</div>
+			<ScrollUp />
 			<Footer />
 		</div>
 	)
