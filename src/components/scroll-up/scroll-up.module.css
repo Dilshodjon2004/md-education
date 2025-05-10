@@ -11,6 +11,10 @@
 	border: none;
 }
 
+.scrollUp svg {
+	border: none;
+}
+
 .scrollUp:hover {
 	background-color: var(--primary-hover);
 }
