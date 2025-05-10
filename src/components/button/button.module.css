@@ -11,6 +11,18 @@
 	transition: all 0.2s ease;
 }
 
+.s {
+	padding: 8px;
+}
+
+.m {
+	padding: 10px;
+}
+
+.l {
+	padding: 12px;
+}
+
 .primary {
 	color: var(--white);
 	background-color: var(--primary);
@@ -29,6 +41,25 @@
 .ghost:hover {
 	color: var(--white);
 	background-color: var(--primary);
+}
+
+.success {
+	color: var(--white);
+	background-color: var(--green);
+}
+
+.success:hover {
+	background-color: var(--green-light);
+	color: var(--green);
+}
+
+.failure {
+	color: var(--white);
+	background-color: var(--red);
+}
+
+.failure:hover {
+	background-color: var(--red-light);
 }
 
 .arrow {

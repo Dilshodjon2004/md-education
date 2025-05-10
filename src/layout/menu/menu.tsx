@@ -1,12 +1,12 @@
 import { AppContext } from '@/context/app.context'
-import Link from 'next/link'
-import { useContext } from 'react'
-import styles from './menu.module.css'
-import cn from 'classnames'
 import { firstLevelMenu } from '@/helpers/constants'
 import { IFirstLevelMenu, IPageItem } from '@/interfaces/menu.interface'
-import { useRouter } from 'next/router'
+import cn from 'classnames'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useContext } from 'react'
+import styles from './menu.module.css'
 
 const Menu = (): JSX.Element => {
 	const { menu, setMenu, firstCategory } = useContext(AppContext)
