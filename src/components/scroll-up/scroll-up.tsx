@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styles from './scroll-up.module.css'
 import { motion } from 'framer-motion'
 import { useScrollY } from '@/hooks/useScrollY'
