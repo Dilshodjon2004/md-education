@@ -13,7 +13,6 @@ import {
 import { sortReducer } from './sort.reducer'
 import { SortEnum } from '@/components/sort/sort.props'
 import { AnimatePresence } from 'framer-motion'
-import { useScrollY } from '@/hooks/useScrollY'
 
 const CoursePageComponent = ({
 	page,
@@ -23,7 +22,6 @@ const CoursePageComponent = ({
 		sort: SortEnum.Rating,
 		products: products,
 	})
-	const scrollY = useScrollY()
 
 	const setSort = (sort: SortEnum) => {
 		dispatch({ type: sort })

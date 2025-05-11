@@ -6,6 +6,7 @@ import Header from './header/header'
 import styles from './layout.module.css'
 import { LayoutProps } from './layout.props'
 import Sidebar from './sidebar/sidebar'
+import { useRouter } from 'next/router'
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
 	return (
@@ -25,11 +26,16 @@ export const withLayout = <T extends Record<string, unknown> & IAppContext>(
 	Component: FunctionComponent<T>
 ) => {
 	return function withLayoutComponent(props: T): JSX.Element {
+		const router = useRouter()
 		return (
 			<AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
-				<Layout>
+				{router.asPath === '/' ? (
 					<Component {...props} />
-				</Layout>
+				) : (
+					<Layout>
+						<Component {...props} />
+					</Layout>
+				)}
 			</AppContextProvider>
 		)
 	}
